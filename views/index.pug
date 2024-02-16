@@ -1,5 +1,16 @@
 extends layout
 
+mixin message(msg)
+  .msg
+    .msg-head
+      strong.user= msg.user
+      p.added= msg.added
+    .msg-body
+      p.text= msg.text
+
 block content
   h1= title
   p Welcome to #{title}
+  .msgs 
+    for msg in messages
+      +message(msg)

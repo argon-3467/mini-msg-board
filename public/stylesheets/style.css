@@ -1,8 +1,50 @@
+:root {
+  --text-color: #ffffff;
+  --bg-color: #09090b;
+  --card-color: #27272a;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --text-color: #000000;
+    --bg-color: #ffffff;
+    --card-color: #f4f4f5;
+  }
+}
+
 body {
-  padding: 50px;
   font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
 }
 
 a {
   color: #00b7ff;
+}
+
+.msgs {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.msg {
+  background-color: var(--card-color);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.msg-head {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+p.added {
+  margin: 0;
 }
