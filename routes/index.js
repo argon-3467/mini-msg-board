@@ -24,4 +24,21 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Mini Msg Board', messages });
 });
 
+router.get('/new', function (req, res, next) {
+  res.render('form', { title: 'Add new Message' });
+});
+
+router.post('/new', function (req, res, next) {
+  addMessage(req.body);
+  res.redirect('/');
+});
+
 module.exports = router;
+
+function addMessage({ msgText, user }) {
+  messages.push({
+    text: msgText,
+    user,
+    added: new Date().toLocaleString('en-GB', { hour12: true }),
+  });
+}

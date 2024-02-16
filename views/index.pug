@@ -9,8 +9,12 @@ mixin message(msg)
       p.text= msg.text
 
 block content
-  h1= title
-  p Welcome to #{title}
+  header.header
+    .info
+      h1= title
+      p Welcome to #{title}
+    .form-link
+      a(href="/new") + New message
   .msgs 
     for msg in messages
       +message(msg)
